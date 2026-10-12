@@ -1,0 +1,23 @@
+virtual env create command
+activation command
+deactivation cmnd
+command used to install dependencies and where we store them
+for browsers installation cmnd used to
+where the driver / page fixture can be stored
+what we store inside basepage
+what inside Loginpage,Register page
+get_by_role takes attribute name="" or name or text inside tags
+context = browser.new_context()
+page1 = context.new_page()
+
+1.python -m venv .venv1 =>
+2..venv1\Scripts\activate
+3.deactivate
+4.pip install -r requirements.txt
+5.playwright install
+6.conftest.py
+7.selenium/pw common methods
+8. locators and methods
+9.definately not name attribute it only rely on the text b/w tags or labels
+10. for new window
+11.for new tab

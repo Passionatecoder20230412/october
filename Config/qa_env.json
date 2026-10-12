@@ -1,0 +1,6 @@
+{
+  "base_url":"https://www.google.com",
+  "timeout": 300000,
+  "headless":"True"
+
+}
