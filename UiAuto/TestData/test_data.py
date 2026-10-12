@@ -1,7 +1,7 @@
 REGISTRATION_DATA = {
     "reg1": {
         "name": "vijay",
-        "email": "vijay.test8500@mail.com",
+        "email": "vijay.test85005933@mail.com",
         "password": "vijay@9876",
         "day_index": 15,
         "month_label": "September",
@@ -19,7 +19,7 @@ REGISTRATION_DATA = {
     },
     "reg2": {
         "name": "amit",
-        "email": "amit.test8501@mail.com",
+        "email": "amit.test85014085@mail.com",
         "password": "amit@1234",
         "day_index": 20,
         "month_label": "October",
