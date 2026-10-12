@@ -47,4 +47,3 @@ jobs:
       - name: Execution failed
         if: failure()
         run: echo Execution failed
-```
