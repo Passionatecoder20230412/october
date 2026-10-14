@@ -6,7 +6,7 @@ def init_page(browser="chrome"):
 
     with sync_playwright() as p:
         if browser=="chrome":
-            browser=p.chromium.launch(headless=False)
+            browser=p.chromium.launch(headless=True)
             context=browser.new_context()
             page=context.new_page()
             # page.goto("https://testautomationpractice.blogspot.com/")
@@ -14,14 +14,14 @@ def init_page(browser="chrome"):
             print(page.title())
         elif browser=="firefox":
 
-            browser = p.firefox.launch(headless=False)
+            browser = p.firefox.launch(headless=True)
             context = browser.new_context()
             page = context.new_page()
             # page.goto("https://testautomationpractice.blogspot.com/")
             page.goto("https://www.automationexercise.com/")
             print(page.title())
         else:
-            browser = p.webkit.launch(headless=False)
+            browser = p.webkit.launch(headless=True)
             context = browser.new_context()
             page = context.new_page()
             # page.goto("https://testautomationpractice.blogspot.com/")
