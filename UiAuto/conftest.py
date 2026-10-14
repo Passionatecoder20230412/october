@@ -12,17 +12,17 @@ def init_page(request):
     
     with sync_playwright() as p:
         if browser_type == "chrome":
-            browser = p.chromium.launch(headless=False)
+            browser = p.chromium.launch(headless=True)
         elif browser_type == "firefox":
-            browser = p.firefox.launch(headless=False)
+            browser = p.firefox.launch(headless=True)
         else:
-            browser = p.webkit.launch(headless=False)
+            browser = p.webkit.launch(headless=True)
             
         context = browser.new_context()
         page = context.new_page()
         
         # Protect against slow site timeouts
-        page.set_default_navigation_timeout(60000)
+        page.set_default_navigation_timeout(3000)
         
         try:
             page.goto("https://www.automationexercise.com/", wait_until="domcontentloaded")
