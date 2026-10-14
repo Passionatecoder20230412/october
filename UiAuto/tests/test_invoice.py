@@ -33,8 +33,8 @@ class TestInvoice:
             # 8. Click 'Register / Login' button
             page.locator('//u[contains(text(),"Register / Login")]').click()
             # 9. Fill all details in Signup and create account
-            page.locator('[data-qa="login-email"]').fill(REGISTRATION_DATA["reg1"]["email"])
-            page.get_by_role('textbox',name="password").fill(REGISTRATION_DATA["reg1"]["password"])
+            page.locator('[data-qa="login-email"]').fill("vijay.test_20261014_135928@mail.com")
+            page.get_by_role('textbox',name="password").fill("vijay@9876")
             page.locator('[data-qa="login-button"]').click()
             # 10. Verify 'ACCOUNT CREATED!' and click 'Continue' button
             # 11. Verify ' Logged in as username' at top
