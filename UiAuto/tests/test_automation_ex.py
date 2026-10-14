@@ -1,11 +1,12 @@
 import pytest
+from datetime import datetime
 from UiAuto.pages.RegisterAutomationEx import RegisterAutomationEx
 
 # Define your data dictionaries inside the test file
 REGISTRATION_DATA = {
     "reg1": {
         "name": "vijay",
-        "email": "vijay.test8500@mail.com",
+        "email": f"vijay.test_{datetime.now().strftime("%Y%m%d_%H%M%S")}@gmail.com",
         "password": "vijay@9876",
         "day_index": 15,
         "month_label": "September",
@@ -23,7 +24,7 @@ REGISTRATION_DATA = {
     },
     "reg2": {
         "name": "amit",
-        "email": "amit.test8501@mail.com",
+        "email": f"amit.test8501_{datetime.now().strftime("%Y%m%d_%H%M%S")}@gmail.com",
         "password": "amit@1234",
         "day_index": 20,
         "month_label": "October",
@@ -72,3 +73,4 @@ class TestAutomationEx:
             zipcode=data_dict["zipcode"],
             mobile=data_dict["mobile"]
         )
+        print(data_dict['email'],data_dict['password'])
