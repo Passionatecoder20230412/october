@@ -1,13 +1,14 @@
-
-
+import pytest
 from playwright.sync_api import sync_playwright
 
+
+@pytest.fixture(scope="class")
 def init_page():
 
     with sync_playwright() as p:
         browser=p.chromium.launch(headless=True)
         page=browser.new_page()
-        page.goto("https://www.automationexercise.com/")
+        page.goto("https://automationexercise.com/")
         print(page.title())
         yield page
         page.close()
