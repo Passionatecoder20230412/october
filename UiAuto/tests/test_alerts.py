@@ -5,7 +5,7 @@ from playwright.sync_api import sync_playwright
 
 def test_alerts():
     with sync_playwright() as p:
-        browser=p.chromium.launch(headless=False)
+        browser=p.chromium.launch(headless=True)
         context=browser.new_context()
         page=context.new_page()
         page.goto("https://automatewithbipin.com/")
@@ -31,7 +31,7 @@ def test_alerts():
         page.locator('[data-view="shadow"]').click()
         page.locator('[id="shadowInput"]').fill("Vijay Anegondi")
         # page.locator('[placeholder="Two boundaries deep"]').fill("Vijay Anegondi")
-        l=['[class="host-box"]','[id="shadowOuter"]','[id="innerHost"]','[id="nestedShadowInput"]']
+        # l=['[class="host-box"]','[id="shadowOuter"]','[id="innerHost"]','[id="nestedShadowInput"]']
         # st=""
         # for i )in range(len(l)):
         #     if i==0:

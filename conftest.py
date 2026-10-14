@@ -5,9 +5,9 @@ from playwright.sync_api import sync_playwright
 def init_page():
 
     with sync_playwright() as p:
-        browser=p.chromium.launch(headless=True)
+        browser=p.chromium.launch(headless=False)
         page=browser.new_page()
-        page.goto("https://testautomationpractice.blogspot.com/")
+        page.goto("https://www.automationexercise.com/")
         print(page.title())
         yield page
         page.close()

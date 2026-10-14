@@ -42,6 +42,7 @@ class RegisterAutomationEx(BasePage):
         self.fill_data(self.NAME,name)
         self.fill_data(self.EMAIL,email)
         self.click_btn(self.SIGNUP_BUTTON)
+        self.page.wait_for_timeout(3000)
         self.check_box(self.GENDER_MR)
         self.fill_data(self.PASSWORD,password)
         self.sel_index(self.DAY_DOB,day_index)

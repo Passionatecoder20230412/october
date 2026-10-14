@@ -1,36 +1,34 @@
 import pytest
 from playwright.sync_api import sync_playwright
 
+import pytest
+from playwright.sync_api import sync_playwright
+
+
 @pytest.fixture
-def init_page(browser="chrome"):
+def init_page(request):
+    browser_name = getattr(request, "param", "chrome")
 
     with sync_playwright() as p:
-        if browser=="chrome":
-            browser=p.chromium.launch(headless=False)
-            context=browser.new_context()
-            page=context.new_page()
-            # page.goto("https://testautomationpractice.blogspot.com/")
-            page.goto("https://www.automationexercise.com/")
-            print(page.title())
-        elif browser=="firefox":
-
-            browser = p.firefox.launch(headless=False)
-            context = browser.new_context()
-            page = context.new_page()
-            # page.goto("https://testautomationpractice.blogspot.com/")
-            page.goto("https://www.automationexercise.com/")
-            print(page.title())
+        if browser_name == "chrome":
+            browser = p.chromium.launch(headless=True)
+        elif browser_name == "firefox":
+            browser = p.firefox.launch(headless=True)
         else:
-            browser = p.webkit.launch(headless=False)
-            context = browser.new_context()
-            page = context.new_page()
-            # page.goto("https://testautomationpractice.blogspot.com/")
-            page.goto("https://www.automationexercise.com/")
-            print(page.title())
+            browser = p.webkit.launch(headless=True)
 
-            yield page
-            page.close()
-            browser.close()
+        context = browser.new_context()
+        page = context.new_page()
+
+        page.goto("https://www.automationexercise.com/")
+        print(page.title())
+
+        yield page
+
+        context.close()
+        browser.close()
+
+
 
 
 @pytest.fixture(scope="function")
