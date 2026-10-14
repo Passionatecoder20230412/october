@@ -17,13 +17,13 @@ def init_page(request):
             browser = p.firefox.launch(headless=True)
         else:
             browser = p.webkit.launch(headless=True)
-            
+
         context = browser.new_context()
         page = context.new_page()
         
         # Protect against slow site timeouts
         page.set_default_navigation_timeout(3000)
-        
+
         try:
             page.goto("https://www.automationexercise.com/", wait_until="domcontentloaded")
             print(f"\n[Browser: {browser_type}] Page Title: {page.title()}")
