@@ -13,12 +13,37 @@ def init_page(request):
     browser_type = request.config.getoption("--browser-type")
 
     with sync_playwright() as p:
+<<<<<<< HEAD
         if browser_type == "chrome":
             browser = p.chromium.launch(headless=False)
         elif browser_type == "firefox":
             browser = p.firefox.launch(headless=False)
         else:
             browser = p.webkit.launch(headless=False)
+=======
+        if browser=="chrome":
+            browser=p.chromium.launch(headless=True)
+            context=browser.new_context()
+            page=context.new_page()
+            # page.goto("https://testautomationpractice.blogspot.com/")
+            page.goto("https://www.automationexercise.com/")
+            print(page.title())
+        elif browser=="firefox":
+
+            browser = p.firefox.launch(headless=True)
+            context = browser.new_context()
+            page = context.new_page()
+            # page.goto("https://testautomationpractice.blogspot.com/")
+            page.goto("https://www.automationexercise.com/")
+            print(page.title())
+        else:
+            browser = p.webkit.launch(headless=True)
+            context = browser.new_context()
+            page = context.new_page()
+            # page.goto("https://testautomationpractice.blogspot.com/")
+            page.goto("https://www.automationexercise.com/")
+            print(page.title())
+>>>>>>> a9ac37b6f84d4cb282a0bf2a5a00feade6c0aaea
 
         context = browser.new_context()
         page = context.new_page()
@@ -67,3 +92,23 @@ def save_session():
         page.close()
         context.close()
         browser.close()
+<<<<<<< HEAD
+=======
+
+
+
+
+# def home_page():
+#     HOME='//h1//*[contains(text(),"Automation")]'
+#     page=
+
+
+"""
+from selenium import webdriver
+
+driver=webdriver.Chrome()
+driver.get("http://google.com")
+driver.maximize_window()
+driver.close()
+"""
+>>>>>>> a9ac37b6f84d4cb282a0bf2a5a00feade6c0aaea
